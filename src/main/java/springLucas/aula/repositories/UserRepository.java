@@ -1,4 +1,10 @@
 package springLucas.aula.repositories;
 
-public class UserRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import springLucas.aula.entities.Users;
+
+public interface UserRepository extends JpaRepository<Users, Long> {
+
+
+
 }
