@@ -1,29 +1,26 @@
-
 package springLucas.aula.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import springLucas.aula.entities.Users;
-import springLucas.aula.repositories.UserRepository;
+import springLucas.aula.entities.Category;
+import springLucas.aula.repositories.CategoryRepository;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class UserService {
+public class CategoryService {
 
     @Autowired
-    private UserRepository repository;
+    private CategoryRepository repository;
 
-    public List<Users> findAll(){
+    public List<Category> findAll(){
         return repository.findAll();
     }
 
-    public Users findById(Long id){
-        Optional<Users> obj = repository.findById(id);
+    public Category findById(Long id){
+        Optional<Category> obj = repository.findById(id);
         return obj.get();
     }
-
-
 
 }
