@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import springLucas.aula.entities.Users;
 import springLucas.aula.repositories.UserRepository;
+import springLucas.aula.services.exceptions.ResourceNotFoundException;
 
 import java.util.List;
 import java.util.Optional;
@@ -21,7 +22,7 @@ public class UserService {
 
     public Users findById(Long id){
         Optional<Users> obj = repository.findById(id);
-        return obj.get();
+        return obj.orElseThrow(() -> new ResourceNotFoundException(id));
     }
 
     public Users insert(Users obj){
